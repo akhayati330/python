@@ -27,7 +27,6 @@ class Television:
 
     def channel_up(self):
         """Increase the channel (loops to MIN_CHANNEL if MAX_CHANNEL is reached)."""
-        # Try to only change channels if the TV is on
         if self.__status:
             self.__channel += 1
             if self.__channel > Television.MAX_CHANNEL:
@@ -35,7 +34,6 @@ class Television:
 
     def channel_down(self):
         """Decrease the channel (loops to MAX_CHANNEL if MIN_CHANNEL is reached)."""
-        # Try to only change channels if the TV is on
         if self.__status:
             self.__channel -= 1
             if self.__channel < Television.MIN_CHANNEL:
@@ -44,7 +42,6 @@ class Television:
     def volume_up(self):
         """Increase the volume (unmutes if muted)."""
         if self.__status:
-            # Unmute first
             if self.__muted:
                 self.__muted = False
             if self.__volume < Television.MAX_VOLUME:
@@ -53,7 +50,6 @@ class Television:
     def volume_down(self):
         """Decrease the volume (unmutes if muted)."""
         if self.__status:
-            # Unmute first
             if self.__muted:
                 self.__muted = False
             if self.__volume > Television.MIN_VOLUME:
