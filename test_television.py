@@ -18,7 +18,7 @@ def test_power():
 
 
 def test_mute():
-    """Test muting and unmuting (not sure if unmuting is a word...) the TV."""
+    """Test muting and unmuting the TV."""
     tv = Television()
     tv.power()
     tv.volume_up()
@@ -36,7 +36,7 @@ def test_channel_up():
     assert str(tv) == "Power = On, Channel = 1, Volume = 0"
     tv.channel_up()
     tv.channel_up()
-    # Loop back to MIN_CHANNEL
+    # Loop back to MIN_CHANNEL...
     tv.channel_up()
     assert str(tv) == "Power = On, Channel = 0, Volume = 0"
 
@@ -56,8 +56,7 @@ def test_volume_up():
     tv.volume_up()
     assert str(tv) == "Power = On, Channel = 0, Volume = 1"
     tv.volume_up()
-    # Try to stay at MAX_VOLUME...
-    tv.volume_up()
+    tv.volume_up()  # Try to stay at MAX_VOLUME
     assert str(tv) == "Power = On, Channel = 0, Volume = 2"
 
 
@@ -68,6 +67,5 @@ def test_volume_down():
     tv.volume_up()
     tv.volume_down()
     assert str(tv) == "Power = On, Channel = 0, Volume = 0"
-    # Try to stay at MIN_VOLUME...
-    tv.volume_down()
+    tv.volume_down()  # Try to stay at MIN_VOLUME
     assert str(tv) == "Power = On, Channel = 0, Volume = 0"
